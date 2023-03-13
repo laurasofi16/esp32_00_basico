@@ -4,7 +4,7 @@
 const char * ssid = "lsgo";
 const char * password = "1234abcd";
 const char * host = "www.google.com";
-const int * puerto = 80;
+const int puerto = 80;
 
  
 void setup() {
@@ -35,7 +35,7 @@ void loop() { // creamos cliente TCP por wifi
      return;
    }
   //peticion GET al servidor HTTP (request)
-   cliente.print("GET /index.html HTTP/1.1\r\nHost: "+host+"\r\n"+"Connection: close\r\n\r\n");
+   cliente.print("GET /index.html HTTP/1.1\r\nHost: "+String(host)+"\r\n"+"Connection: close\r\n\r\n");
 
   //debemos darle tiempo al servidor para que responda la peticion (response)
    unsigned long milisegundos = millis(); //hora de inicio
@@ -56,17 +56,4 @@ void loop() { // creamos cliente TCP por wifi
    Serial.println("Fin de la conexion");
    cliente.stop();
 
-   delay(2000);
-   
-
-
-  delay(500);  //Realizar retardos de tiempo en milisegundos
-  digitalWrite(2,HIGH);  //Escribir en un pin, ya sea un alto (HIGH) o bajo (LOW)
-
-  Serial.println("Led encendido");
-
-  delay(500);
-  digitalWrite(2,LOW);
-
-  Serial.println("Led apagado");
-} 
+   delay(2000);} 
